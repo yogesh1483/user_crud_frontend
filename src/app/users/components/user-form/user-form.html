@@ -1,0 +1,130 @@
+<div class="container mt-4">
+  <h3 class="mb-3">
+    {{ isEdit ? 'Edit User' : 'Create User' }}
+  </h3>
+
+  <form (ngSubmit)="save()" #userForm="ngForm">
+    <div class="row g-3">
+
+      <!-- User Details -->
+      <div class="col-md-6">
+        <label class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          [(ngModel)]="user.name"
+          required
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]="user.email"
+          required
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Contact</label>
+        <input
+          type="number"
+          class="form-control"
+          name="contact"
+          [(ngModel)]="user.contact"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Status</label>
+        <select
+          class="form-select"
+          name="activeStatus"
+          [(ngModel)]="user.activeStatus"
+        >
+          <option [ngValue]="true">Active</option>
+          <option [ngValue]="false">Inactive</option>
+        </select>
+      </div>
+
+      <!-- Address Section -->
+      <div class="col-12 mt-4">
+        <h5>Address Details</h5>
+        <hr />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Street</label>
+        <input
+          type="text"
+          class="form-control"
+          name="street"
+          [(ngModel)]="user.address.street"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Landmark</label>
+        <input
+          type="text"
+          class="form-control"
+          name="landmark"
+          [(ngModel)]="user.address.landmark"
+        />
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">City</label>
+        <input
+          type="text"
+          class="form-control"
+          name="city"
+          [(ngModel)]="user.address.city"
+        />
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">State</label>
+        <input
+          type="text"
+          class="form-control"
+          name="state"
+          [(ngModel)]="user.address.state"
+        />
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label">Pincode</label>
+        <input
+          type="text"
+          class="form-control"
+          name="pincode"
+          [(ngModel)]="user.address.pincode"
+        />
+      </div>
+
+      <!-- Buttons -->
+      <div class="col-12 mt-3">
+        <button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="userForm.invalid"
+        >
+          Save
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary ms-2"
+          (click)="cancel()"
+        >
+          Cancel
+        </button>
+      </div>
+
+    </div>
+  </form>
+</div>
