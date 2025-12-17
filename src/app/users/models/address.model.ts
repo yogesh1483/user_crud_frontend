@@ -2,7 +2,7 @@ export {};
 
 export class Address {
   constructor(
-    public id: number,
+    public id: number | null,
     public street: string,
     public landmark: string,
     public city: string,

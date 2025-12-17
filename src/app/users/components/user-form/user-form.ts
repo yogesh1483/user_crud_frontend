@@ -17,12 +17,12 @@ export class UserForm implements OnInit {
 
 
 user: User = new User(
-null,
-'',
-'',
-0,
-true,
-new Address(0, '', '', '', '', '')
+  null,    // userId null
+  '',      // name
+  '',      // email
+  0,       // contact
+  true,    // activeStatus
+  new Address(null, '', '', '', '', '') // addressId null
 );
 
 
@@ -51,8 +51,6 @@ this.service.create(this.user)
 .subscribe(() => this.router.navigate(['/users']));
 }
 }
-
-
 cancel(): void {
 this.router.navigate(['/users']);
 }
